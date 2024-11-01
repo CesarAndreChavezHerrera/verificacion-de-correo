@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar estructura de correo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2>Verificar Estructura de Correo</h2>
+
+    <!-- Campo para la API Key de OpenAI -->
+    <label for="apiKey">API Key de OpenAI:</label>
+    <input type="password" id="apiKey" placeholder="Ingresa tu API Key">
+
+    <!-- Campo para el asunto del correo -->
+    <label for="subject">Asunto:</label>
+    <input type="text" id="subject" placeholder="Ingresa el asunto del correo">
+
+    <!-- Campo para el cuerpo del correo -->
+    <label for="body">Cuerpo del correo:</label>
+    <textarea id="body" placeholder="Ingresa el contenido del correo"></textarea>
+
+    <!-- Botón para verificar la estructura -->
+    <button onclick="verificarEstructura()">Verificar Estructura</button>
+
+    <!-- Resultado -->
+    <div id="result"></div>
+
+</body>
+    <script src="vereficacion.js"></script>
+</html>
