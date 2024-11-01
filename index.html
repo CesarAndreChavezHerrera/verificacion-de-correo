@@ -15,13 +15,18 @@
     <input type="password" id="apiKey" placeholder="Add the Api Key">
 
     <!-- Campo para el asunto del correo -->
-    <label for="subject">Subject:</label>
+    <label for="subject">Email Subject:</label>
     <input type="text" id="subject" placeholder="Write the subject email"">
 
     <!-- Campo para el cuerpo del correo -->
-    <label for="body">Body:</label>
+    <label for="body">Email Body:</label>
     <textarea id="body" placeholder="Write the body email"></textarea>
 
+    <!-- Botón para verificar la estructura -->
+    <button onclick="verificarEstructura()">Verificar Estructura</button>
+
+    <!-- Resultado -->
+    <div id="result"></div>
     <!-- Menú desplegable para reglas de verificación -->
 
     <details>
@@ -45,11 +50,7 @@
 
 
 
-    <!-- Botón para verificar la estructura -->
-    <button onclick="verificarEstructura()">Verificar Estructura</button>
 
-    <!-- Resultado -->
-    <div id="result"></div>
 
 </body>
     <script src="vereficacion.js"></script>

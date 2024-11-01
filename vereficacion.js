@@ -1,9 +1,26 @@
 
+
+
+
 async function verificarEstructura() {
     // Obtener valores de los campos
     const apiKey = document.getElementById("apiKey").value;
     const subject = document.getElementById("subject").value;
     const body = document.getElementById("body").value;
+
+    const model = document.getElementById("model").value;
+    const subjectRules = document.getElementById("subjectRules").value;
+    const bodyRules = document.getElementById("bodyRules").value;
+
+    const rule = `
+    Eres un asistente que revisa la estructura de correos electrónicos. \n
+    Verificar que los correos sigan la siguiente reglas para el subject: "${subjectRules}" \n
+    Verificar que los correos sigan las siguientes reglas para el cuerpo: "${bodyRules}" \n
+
+    y al no complir las reglas quiero que señales por punto los errores en formato de lista dejando un salto de linea de por medio sin citar las body rule.
+    
+    asi mismo quiero que te tomes una pausa y analisies si la estructura se le puede aplicar o no dichas reglas
+    `;
 
     // Validación inicial
     if (!apiKey || !subject || !body) {
@@ -13,6 +30,7 @@ async function verificarEstructura() {
 
     // Preparar la petición para OpenAI
     try {
+        alert("Analizando... wait a second");
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
             headers: {
@@ -22,7 +40,7 @@ async function verificarEstructura() {
             body: JSON.stringify({
                 model: "gpt-3.5-turbo",
                 messages: [
-                    { role: "system", content: "Eres un asistente que revisa la estructura de correos electrónicos." },
+                    { role: "system", content: rule },
                     { role: "user", content: `Revisa si el siguiente correo tiene una estructura adecuada.\n\nAsunto: ${subject}\n\nCuerpo:\n${body}` }
                 ]
             })
