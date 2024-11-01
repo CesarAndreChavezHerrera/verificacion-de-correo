@@ -11,16 +11,39 @@
     <h2>Verificar Estructura de Correo</h2>
 
     <!-- Campo para la API Key de OpenAI -->
-    <label for="apiKey">API Key de OpenAI:</label>
-    <input type="password" id="apiKey" placeholder="Ingresa tu API Key">
+    <label for="apiKey">OpenAI API Key:</label>
+    <input type="password" id="apiKey" placeholder="Add the Api Key">
 
     <!-- Campo para el asunto del correo -->
-    <label for="subject">Asunto:</label>
-    <input type="text" id="subject" placeholder="Ingresa el asunto del correo">
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" placeholder="Write the subject email"">
 
     <!-- Campo para el cuerpo del correo -->
-    <label for="body">Cuerpo del correo:</label>
-    <textarea id="body" placeholder="Ingresa el contenido del correo"></textarea>
+    <label for="body">Body:</label>
+    <textarea id="body" placeholder="Write the body email"></textarea>
+
+    <!-- Menú desplegable para reglas de verificación -->
+
+    <details>
+        <summary>Advanced Verification Rules</summary>
+        <!-- Selección del modelo -->
+        <label for="model">OpenAI model:</label>
+        <select id="model">
+            <option value="gpt-3.5-turbo" selected>gpt-3.5-turbo</option>
+            <option value="gpt-4o-mini">gpt-4o-mini</option>
+            <!-- Puedes agregar más modelos según disponibilidad -->
+        </select>
+
+        <!-- Reglas para verificar el subject -->
+        <label for="subjectRules">Rules for the subject:</label>
+        <textarea type="text" id="subjectRules" placeholder="Write the verification rules for the subject"> </textarea>
+
+        <!-- Reglas para verificar el body -->
+        <label for="bodyRules">Rules for the body:</label>
+        <textarea type="text" id="bodyRules" placeholder="Write the verification rules for the body"> </textarea>
+    </details>
+
+
 
     <!-- Botón para verificar la estructura -->
     <button onclick="verificarEstructura()">Verificar Estructura</button>
