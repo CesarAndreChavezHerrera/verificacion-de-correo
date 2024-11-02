@@ -23,7 +23,7 @@
     <textarea id="body" placeholder="Write the body email"></textarea>
 
     <!-- Botón para verificar la estructura -->
-    <button onclick="verificarEstructura()">Verificar Estructura</button>
+    <button onclick="verificarEstructura()">verify</button>
 
     <!-- Resultado -->
     <div id="result"></div>
@@ -36,6 +36,14 @@
         <select id="model">
             <option value="gpt-3.5-turbo" selected>gpt-3.5-turbo</option>
             <option value="gpt-4o-mini">gpt-4o-mini</option>
+            <!-- Puedes agregar más modelos según disponibilidad -->
+        </select>
+
+        <label for="lan">Language of response:</label>
+        <select id="lan">
+            <option value="English" selected>English</option>
+            <option value="español">Spanish</option>
+            <option value="deutsch">German</option>
             <!-- Puedes agregar más modelos según disponibilidad -->
         </select>
 

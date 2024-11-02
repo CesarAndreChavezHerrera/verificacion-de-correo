@@ -9,17 +9,20 @@ async function verificarEstructura() {
     const body = document.getElementById("body").value;
 
     const model = document.getElementById("model").value;
+    const lenguaje = document.getElementById("lan").value;
     const subjectRules = document.getElementById("subjectRules").value;
     const bodyRules = document.getElementById("bodyRules").value;
 
     const rule = `
     Eres un asistente que revisa la estructura de correos electrónicos. \n
-    Verificar que los correos sigan la siguiente reglas para el subject: "${subjectRules}" \n
-    Verificar que los correos sigan las siguientes reglas para el cuerpo: "${bodyRules}" \n
+    Verificar que los correos sigan la siguiente reglas para el subject: "${subjectRules}" fin de las reglas del subject\n
+    Verificar que los correos sigan las siguientes reglas para el cuerpo: "${bodyRules}" fin de kas reglas del body\n
 
-    y al no complir las reglas quiero que señales por punto los errores en formato de lista dejando un salto de linea de por medio sin citar las body rule.
-    
-    asi mismo quiero que te tomes una pausa y analisies si la estructura se le puede aplicar o no dichas reglas
+    y al no complir las reglas quiero que señales por punto los errores y puntos a mejorar en formato de lista dejando un salto de linea de por medio sin citar las reglas de cuerpo.
+
+    y proporciona un analisis brebe de como mejorar la redaccion 
+
+    y quiero que la respuesta me la escribas en ${lenguaje}
     `;
 
     // Validación inicial
@@ -38,7 +41,7 @@ async function verificarEstructura() {
                 "Authorization": `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: "gpt-3.5-turbo",
+                model: model,
                 messages: [
                     { role: "system", content: rule },
                     { role: "user", content: `Revisa si el siguiente correo tiene una estructura adecuada.\n\nAsunto: ${subject}\n\nCuerpo:\n${body}` }
